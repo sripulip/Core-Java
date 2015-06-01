@@ -30,7 +30,8 @@ class Contractor implements Comparable<Contractor> {
 
 	@Override
 	public int compareTo(Contractor otherEmployee) {
-
+		System.out.println("In superclass: " + this.getDetails() + " : "
+				+ otherEmployee.getDetails());
 		return this.hourlySalary - otherEmployee.hourlySalary;
 	}
 }
@@ -63,19 +64,20 @@ class HeadContractor extends Contractor {
 	// Do not implement this. The 'transitivity contract' will break. May give
 	// wrong results. Refer to
 	// http://stackoverflow.com/questions/11928656/sorting-a-subclass-in-java
+
 	@Override
 	public int compareTo(Contractor otherEmployee) {
 
-		int cmp = super.compareTo(otherEmployee);
-
-		if (otherEmployee instanceof HeadContractor) {
-
+		if (this instanceof HeadContractor
+				&& otherEmployee instanceof HeadContractor) {
+			System.out.println("In subclass: " + this.getDetails() + " : "
+					+ otherEmployee.getDetails());
 			HeadContractor c = (HeadContractor) otherEmployee;
-			cmp = this.getTotalSalary() - c.getTotalSalary();
+			return (this.getTotalSalary() - c.getTotalSalary());
 		}
-
-		return cmp;
+		return super.compareTo(otherEmployee);
 	}
+
 }
 
 public class InterfaceComparableExample {

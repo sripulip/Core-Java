@@ -9,7 +9,6 @@ public class InnerClassExample implements MyInterface {
 				System.out.println("Anonymous Inner Class");
 			}
 		};
-
 		myClass.print();
 	}
 

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class LambdaExpressionsExample {
+public class LambdaExpressionsExample1 {
 
     public static int calculateSomething(List<Integer> values,
                                          Predicate<Integer> selector) {
@@ -23,7 +23,6 @@ public class LambdaExpressionsExample {
         System.out.println(calculateSomething(values, num -> true));
         System.out.println(calculateSomething(values, num -> num % 2 == 0));
         System.out.println(calculateSomething(values, num -> num % 2 != 0));
-
     }
 
 }

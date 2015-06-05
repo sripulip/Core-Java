@@ -1,6 +1,6 @@
 package oopsConcepts;
 
-public class InnerClassExample implements MyInterface {
+public class AnonymousInnerClassExample implements MyInterface {
 
 	public static void main(String[] args) {
 

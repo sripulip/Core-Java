@@ -4,6 +4,7 @@ class ThreadTest implements Runnable {
 
 	private static int number = 1;
 	private int threadNumber;
+	protected int count = 0;
 
 	public ThreadTest() {
 		this.threadNumber = number++;
@@ -11,17 +12,16 @@ class ThreadTest implements Runnable {
 
 	@Override
 	public void run() {
-		print();
+		print(this.threadNumber);
 	}
 
-	public void printNumbers() {
+	public int printNumbers() {
 		new Thread(this).start();
+		return this.threadNumber;
 	}
 
-	private void print() {
-		for (int i = 0; i < 35; i++) {
-			System.out.println("Thread " + threadNumber + ":" + i);
-		}
+	private void print(int i) {
+		System.out.println("" + this.threadNumber + ": " + (this.count += i));
 	}
 }
 
@@ -34,8 +34,9 @@ public class MultithreadingExample {
 		for (int i = 0; i < threadArray.length; i++) {
 			threadArray[i] = new ThreadTest();
 		}
-		for (ThreadTest thread : threadArray) {
-			thread.printNumbers();
+		for (int i = 0; i < threadArray.length; i++) {
+			int threadNum = threadArray[i].printNumbers();
+			System.out.println("Thread " + threadNum + " returned");
 		}
 	}
 }

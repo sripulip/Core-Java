@@ -5,7 +5,6 @@ public class LambdaExpressionsExample2 {
 	@FunctionalInterface
 	interface IntegerMath {
 		int math(int a, int b);
-
 		default IntegerMath swap() {
 			return (a, b) -> math(b, a);
 		}

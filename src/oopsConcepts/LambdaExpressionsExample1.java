@@ -8,7 +8,6 @@ public class LambdaExpressionsExample1 {
 
 	public static int calculateSomething(List<Integer> values,
 			Predicate<Integer> selector) {
-
 		return values.stream()
 				      .filter(selector)
 				      .map(num -> num * 2)
